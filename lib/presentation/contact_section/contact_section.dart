@@ -25,7 +25,6 @@ class ContactSection extends StatelessWidget {
           CircleAvatar(
             radius: 70,
             backgroundColor: Colors.blueAccent,
-            //child: Image.asset('assets/images/mein_photo.png'),
             backgroundImage: AssetImage('assets/images/mein_foto.png'),
           ),
           const SizedBox(height: 24),
@@ -48,7 +47,7 @@ class ContactSection extends StatelessWidget {
           ),
           const SizedBox(height: 20),
           const Text(
-            'Germany, Bayern, 92253 Schnaittenbach | Experience 4+ years',
+            'Germany, Bayern, 92253 Schnaittenbach',
             style: TextStyle(color: Colors.white54),
           ),
           const SizedBox(height: 30),

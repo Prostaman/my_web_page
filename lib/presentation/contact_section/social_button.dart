@@ -3,15 +3,13 @@ import 'package:flutter_svg/flutter_svg.dart';
 import '../../domain/entities/contact_link_entity.dart';
 import '../../domain/services/link_launcher.dart';
 
+import '../github_icon.dart';
+
 class SocialButton extends StatelessWidget {
   final ContactLinkEntity link;
   final OpenLink onOpenLink;
 
-  const SocialButton({
-    super.key,
-    required this.link,
-    required this.onOpenLink,
-  });
+  const SocialButton({super.key, required this.link, required this.onOpenLink});
 
   @override
   Widget build(BuildContext context) {
@@ -20,35 +18,34 @@ class SocialButton extends StatelessWidget {
       child: IconButton(
         icon: _buildIcon(),
         onPressed: () => onOpenLink(link.url),
-        tooltip: link.type.name,
+        tooltip: link.type.label, // Используем label вместо name
         color: Colors.white70,
-        hoverColor: Colors.blueAccent,
+        hoverColor: Colors.blueAccent.withOpacity(0.1),
       ),
     );
   }
 
   Widget _buildIcon() {
     const double iconSize = 30;
-    const Color iconColor = Colors.white70;
 
-    switch (link.type) {
-      case ContactLinkType.github:
-        return SvgPicture.asset(
-          'assets/icons/github_icon.svg',
+    final Widget icon = switch (link.type) {
+      ContactLinkType.github => const GithubIcon(size: iconSize),
+      ContactLinkType.whatsapp => SvgPicture.asset(
+          'assets/icons/social/whats_app_icon.svg',
           width: iconSize,
           height: iconSize,
-          colorFilter: const ColorFilter.mode(iconColor, BlendMode.srcIn),
-        );
-      case ContactLinkType.whatsapp:
-        return Image.asset(
-          'assets/icons/whats_app_icon.png',
-          width: iconSize,
-          height: iconSize,
-        );
-      case ContactLinkType.telegram:
-        return const Icon(Icons.telegram, size: iconSize, color: iconColor);
-      case ContactLinkType.mail:
-        return const Icon(Icons.mail, size: iconSize, color: iconColor);
-    }
+        ),
+      ContactLinkType.telegram => const Icon(Icons.telegram, size: iconSize,color: Colors.blueAccent),
+      ContactLinkType.email => const Icon(Icons.mail, size: iconSize,color: Colors.amber),
+    };
+
+    return Container(
+      padding: const EdgeInsets.all(10),
+      decoration: const BoxDecoration(
+        color: Colors.white38, // Серый фон
+        shape: BoxShape.circle,
+      ),
+      child: icon,
+    );
   }
 }

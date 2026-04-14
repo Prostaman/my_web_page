@@ -1,4 +1,18 @@
-enum ContactLinkType { mail, github, telegram, whatsapp }
+enum ContactLinkType {
+  email,
+  github,
+  telegram,
+  whatsapp;
+
+  String get label {
+    return switch (this) {
+      ContactLinkType.email => 'Email',
+      ContactLinkType.github => 'GitHub',
+      ContactLinkType.telegram => 'Telegram',
+      ContactLinkType.whatsapp => 'WhatsApp',
+    };
+  }
+}
 
 class ContactLinkEntity {
   final String url;
