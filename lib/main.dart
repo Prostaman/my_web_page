@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:my_web_page/presentation/contact_section/contact_section.dart';
 import 'package:my_web_page/presentation/education_section/education_section.dart';
 import 'package:my_web_page/presentation/expierence_section/experience_section.dart';
-import 'package:my_web_page/presentation/hobbies_section/hobbies_section.dart';
 import 'package:my_web_page/presentation/personal_projects_section/projects_section.dart';
 import 'package:my_web_page/presentation/skills_section/skills_grid.dart';
 import 'package:my_web_page/presentation/statistics_bar/statistics_bar.dart';
@@ -47,7 +46,6 @@ class HomePage extends StatelessWidget {
               const ProjectsSection(),
               const SkillsGrid(),
               const EducationSection(),
-              const HobbiesSection(),
               const Footer(),
             ],
           ),

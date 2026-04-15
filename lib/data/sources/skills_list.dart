@@ -67,7 +67,7 @@ const List<SkillEntity> skillsList = [
     title: 'Firebase',
     icon: Icons.local_fire_department,
     technologies: [
-      'Authentication',
+      'Firebase Analytics',
       'Google Analytics',
       'Crashlytics',
       'Remote Config',
@@ -79,13 +79,21 @@ const List<SkillEntity> skillsList = [
     ],
   ),
   SkillEntity(
-    title: 'Design & UX',
-    icon: Icons.palette,
+    title: 'Network Analysis',
+    icon: Icons.settings_ethernet,
     technologies: [
-      'Figma',
-      'Material Design 3',
-      'Responsive Design',
-      'Adaptive Layouts',
+      'Wireshark',
+      'Charles Proxy',
+      'HTTP Toolkit',
     ],
   ),
+  SkillEntity(
+    title: 'Testing Tools',
+    icon: Icons.bug_report,
+    technologies: [
+      'Appium',
+      'Espresso',
+      'Postman',
+    ],
+  )
 ];

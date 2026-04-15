@@ -47,10 +47,19 @@ class ExpTile extends StatelessWidget {
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(experience.company,
+                    Expanded(
+                      child: Text(
+                        experience.company,
                         style: const TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold)),
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        softWrap: true,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
                     _buildLinks(),
                   ],
                 ),

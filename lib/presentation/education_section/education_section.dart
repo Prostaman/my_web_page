@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../data/sources/education_list.dart';
 import '../section_header.dart';
+import 'education_tile.dart';
 
 class EducationSection extends StatelessWidget {
   const EducationSection({super.key});
@@ -14,31 +15,25 @@ class EducationSection extends StatelessWidget {
       child: Column(
         children: [
           const SectionHeader(title: 'Education'),
-          const SizedBox(height: 30),
-          ...educationList.map((edu) => _EduTile(title: edu.title, sub: edu.sub)),
+          const SizedBox(height: 50),
+          Wrap(
+            spacing: 100, // Horizontal space between cards
+            runSpacing: 60, // Vertical space if wrapped
+            alignment: WrapAlignment.center,
+            children: educationList
+                .map((edu) => EduTile(
+                      degree: edu.degree,
+                      title: edu.specialization,
+                      sub: edu.sub,
+                      iconPath: edu.iconPath,
+                      isCircle: edu.isCircle,
+                    ))
+                .toList(),
+          ),
         ],
       ),
     );
   }
 }
 
-class _EduTile extends StatelessWidget {
-  final String title;
-  final String sub;
-  const _EduTile({required this.title, required this.sub});
 
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
-      child: Column(
-        children: [
-          Text(title,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center),
-          Text(sub, style: const TextStyle(color: Colors.white54)),
-        ],
-      ),
-    );
-  }
-}
