@@ -45,5 +45,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_STUDIO_7308954666_4CD06 }}'
           projectId: studio-7308954666-4cd06
-          # Если это пуш в main, деплоим в live, иначе в preview (временная ссылка)
-          channelId: ${{ github.ref == 'refs/heads/main' && 'live' || '' }}
+          # Если main -> live. Если development -> канал "development".
+          channelId: ${{ github.ref_name == 'main' && 'live' || 'development' }}
