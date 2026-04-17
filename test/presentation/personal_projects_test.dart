@@ -6,14 +6,12 @@ import 'package:my_web_page/presentation/personal_projects_section/projects_sect
 import 'package:my_web_page/presentation/personal_projects_section/project_card.dart';
 
 void main() {
-  testWidgets('ProjectsSection displays all items from projectsList', (WidgetTester tester) async {
+  testWidgets('ProjectsSection displays all items from projectsList', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       const MaterialApp(
-        home: Scaffold(
-          body: SingleChildScrollView(
-            child: ProjectsSection(),
-          ),
-        ),
+        home: Scaffold(body: SingleChildScrollView(child: ProjectsSection())),
       ),
     );
 
@@ -25,7 +23,9 @@ void main() {
     }
   });
 
-  testWidgets('ProjectCard renders correctly with isolated data', (WidgetTester tester) async {
+  testWidgets('ProjectCard renders correctly with isolated data', (
+    WidgetTester tester,
+  ) async {
     const testProject = ProjectEntity(
       title: 'Test App',
       description: 'Test Description',
@@ -34,19 +34,19 @@ void main() {
 
     await tester.pumpWidget(
       const MaterialApp(
-        home: Scaffold(
-          body: ProjectCard(project: testProject),
-        ),
+        home: Scaffold(body: ProjectCard(project: testProject)),
       ),
     );
 
     expect(find.text('Test App'), findsOneWidget);
     expect(find.text('Test Description'), findsOneWidget);
-    
-    final imageFinder = find.byWidgetPredicate((widget) =>
-        widget is Image &&
-        widget.image is AssetImage &&
-        (widget.image as AssetImage).assetName == testProject.assetPath);
+
+    final imageFinder = find.byWidgetPredicate(
+      (widget) =>
+          widget is Image &&
+          widget.image is AssetImage &&
+          (widget.image as AssetImage).assetName == testProject.assetPath,
+    );
     expect(imageFinder, findsOneWidget);
   });
 }

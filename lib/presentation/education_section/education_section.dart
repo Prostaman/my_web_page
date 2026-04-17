@@ -21,13 +21,15 @@ class EducationSection extends StatelessWidget {
             runSpacing: 60, // Vertical space if wrapped
             alignment: WrapAlignment.center,
             children: educationList
-                .map((edu) => EduTile(
-                      degree: edu.degree,
-                      title: edu.specialization,
-                      sub: edu.sub,
-                      iconPath: edu.iconPath,
-                      isCircle: edu.isCircle,
-                    ))
+                .map(
+                  (edu) => EduTile(
+                    degree: edu.degree,
+                    title: edu.specialization,
+                    sub: edu.sub,
+                    iconPath: edu.iconPath,
+                    isCircle: edu.isCircle,
+                  ),
+                )
                 .toList(),
           ),
         ],
@@ -35,5 +37,3 @@ class EducationSection extends StatelessWidget {
     );
   }
 }
-
-

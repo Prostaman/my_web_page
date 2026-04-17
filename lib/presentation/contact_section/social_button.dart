@@ -31,12 +31,20 @@ class SocialButton extends StatelessWidget {
     final Widget icon = switch (link.type) {
       ContactLinkType.github => const GithubIcon(size: iconSize),
       ContactLinkType.whatsapp => SvgPicture.asset(
-          'assets/icons/social/whats_app_icon.svg',
-          width: iconSize,
-          height: iconSize,
-        ),
-      ContactLinkType.telegram => const Icon(Icons.telegram, size: iconSize,color: Colors.blueAccent),
-      ContactLinkType.email => const Icon(Icons.mail, size: iconSize,color: Colors.amber),
+        'assets/icons/social/whats_app_icon.svg',
+        width: iconSize,
+        height: iconSize,
+      ),
+      ContactLinkType.telegram => const Icon(
+        Icons.telegram,
+        size: iconSize,
+        color: Colors.blueAccent,
+      ),
+      ContactLinkType.email => const Icon(
+        Icons.mail,
+        size: iconSize,
+        color: Colors.amber,
+      ),
     };
 
     return Container(

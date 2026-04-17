@@ -28,7 +28,7 @@ const List<ExperienceEntity> experienceList = [
     companyIcon: 'assets/icons/companies/yellows_icon.png',
     appIcons: [
       'assets/icons/projects/yemath_Icon.png',
-      'assets/icons/projects/run_chlodnia_icon.png'
+      'assets/icons/projects/run_chlodnia_icon.png',
     ],
     desc:
         'Development of an Android application from scratch based on UI/UX designer models and API documentation.\nProjects:\n1. YeMath (Educational game for children).\n2. Android application for the MC9300 scanner (for warehouse management of agricultural products).',

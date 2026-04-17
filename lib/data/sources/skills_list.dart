@@ -60,7 +60,7 @@ const List<SkillEntity> skillsList = [
       'Platform Channels',
       'Google AdMob',
       'Clean Architecture',
-      'Reactive Programming'
+      'Reactive Programming',
     ],
   ),
   SkillEntity(

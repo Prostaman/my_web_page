@@ -15,5 +15,8 @@ class ProjectEntity {
     this.assetPath,
     this.androidUrl,
     this.iosUrl,
-  }) : assert(icon != null || assetPath != null, 'Either icon or assetPath must be provided');
+  }) : assert(
+         icon != null || assetPath != null,
+         'Either icon or assetPath must be provided',
+       );
 }

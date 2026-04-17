@@ -14,12 +14,14 @@ class SkillsGrid extends StatelessWidget {
         children: [
           const SectionHeader(title: 'Technical Skills'),
           const SizedBox(height: 40),
-          ...skillsList.map((category) => SkillCategory(
-                title: category.title,
-                icon: category.icon,
-                assetPath: category.assetPath,
-                skills: category.technologies,
-              )),
+          ...skillsList.map(
+            (category) => SkillCategory(
+              title: category.title,
+              icon: category.icon,
+              assetPath: category.assetPath,
+              skills: category.technologies,
+            ),
+          ),
         ],
       ),
     );

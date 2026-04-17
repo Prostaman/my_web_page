@@ -5,11 +5,7 @@ class GithubIcon extends StatelessWidget {
   final double size;
   final Color? color;
 
-  const GithubIcon({
-    super.key,
-    required this.size,
-    this.color,
-  });
+  const GithubIcon({super.key, required this.size, this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +13,8 @@ class GithubIcon extends StatelessWidget {
       'assets/icons/social/github_icon.svg',
       width: size,
       height: size,
-      colorFilter: color != null 
-          ? ColorFilter.mode(color!, BlendMode.srcIn) 
+      colorFilter: color != null
+          ? ColorFilter.mode(color!, BlendMode.srcIn)
           : null,
     );
   }

@@ -5,14 +5,12 @@ import 'package:my_web_page/presentation/skills_section/skills_grid.dart';
 import 'package:my_web_page/presentation/skills_section/skill_category.dart';
 
 void main() {
-  testWidgets('SkillsGrid displays all categories from skillsList', (WidgetTester tester) async {
+  testWidgets('SkillsGrid displays all categories from skillsList', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       const MaterialApp(
-        home: Scaffold(
-          body: SingleChildScrollView(
-            child: SkillsGrid(),
-          ),
-        ),
+        home: Scaffold(body: SingleChildScrollView(child: SkillsGrid())),
       ),
     );
 
@@ -23,9 +21,11 @@ void main() {
     }
   });
 
-  testWidgets('SkillCategory renders correctly with isolated data', (WidgetTester tester) async {
+  testWidgets('SkillCategory renders correctly with isolated data', (
+    WidgetTester tester,
+  ) async {
     const testSkills = ['Flutter', 'Dart', 'Testing'];
-    
+
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
@@ -40,7 +40,7 @@ void main() {
 
     expect(find.text('Cross-Platform'), findsOneWidget);
     expect(find.byIcon(Icons.star), findsOneWidget);
-    
+
     for (var skill in testSkills) {
       expect(find.text(skill), findsOneWidget);
     }

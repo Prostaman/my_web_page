@@ -24,23 +24,27 @@ class ProjectsSection extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: projectsList.map((project) => Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 10),
-                      child: ProjectCard(
-                        project: project,
-                      ),
-                    )).toList(),
+                    children: projectsList
+                        .map(
+                          (project) => Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10),
+                            child: ProjectCard(project: project),
+                          ),
+                        )
+                        .toList(),
                   ),
                 );
               }
 
               return Column(
-                children: projectsList.map((project) => Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: ProjectCard(
-                    project: project,
-                  ),
-                )).toList(),
+                children: projectsList
+                    .map(
+                      (project) => Padding(
+                        padding: const EdgeInsets.only(bottom: 20),
+                        child: ProjectCard(project: project),
+                      ),
+                    )
+                    .toList(),
               );
             },
           ),

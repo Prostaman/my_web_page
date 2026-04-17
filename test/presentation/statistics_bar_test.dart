@@ -4,13 +4,11 @@ import 'package:my_web_page/presentation/statistics_bar/statistics_bar.dart';
 import 'package:my_web_page/presentation/statistics_bar/stat_item.dart';
 
 void main() {
-  testWidgets('StatisticsBar displays all hardcoded stats', (WidgetTester tester) async {
+  testWidgets('StatisticsBar displays all hardcoded stats', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
-          body: StatisticsBar(),
-        ),
-      ),
+      const MaterialApp(home: Scaffold(body: StatisticsBar())),
     );
 
     // Verify key indicators
@@ -20,7 +18,9 @@ void main() {
     expect(find.text('B2'), findsOneWidget);
   });
 
-  testWidgets('StatItem renders correctly in isolation', (WidgetTester tester) async {
+  testWidgets('StatItem renders correctly in isolation', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(

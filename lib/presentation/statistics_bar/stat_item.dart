@@ -9,8 +9,18 @@ class StatItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(value, style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.blueAccent)),
-        Text(label, style: const TextStyle(fontSize: 14, color: Colors.white54)),
+        Text(
+          value,
+          style: const TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: Colors.blueAccent,
+          ),
+        ),
+        Text(
+          label,
+          style: const TextStyle(fontSize: 14, color: Colors.white54),
+        ),
       ],
     );
   }

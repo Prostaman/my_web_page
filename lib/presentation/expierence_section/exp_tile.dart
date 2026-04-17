@@ -7,10 +7,7 @@ import '../../domain/entities/experience_entity.dart';
 class ExpTile extends StatelessWidget {
   final ExperienceEntity experience;
 
-  const ExpTile({
-    required this.experience,
-    super.key,
-  });
+  const ExpTile({required this.experience, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +21,7 @@ class ExpTile extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-                    if (experience.companyIcon != null)
+          if (experience.companyIcon != null)
             ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Container(
@@ -38,8 +35,11 @@ class ExpTile extends StatelessWidget {
               ),
             )
           else
-            const Icon(Icons.business_center,
-                color: Colors.blueAccent, size: 48),
+            const Icon(
+              Icons.business_center,
+              color: Colors.blueAccent,
+              size: 48,
+            ),
           const SizedBox(width: 20),
           Expanded(
             child: Column(
@@ -63,24 +63,33 @@ class ExpTile extends StatelessWidget {
                     _buildLinks(),
                   ],
                 ),
-                Text(experience.role,
-                    style: const TextStyle(color: Colors.blueAccent)),
+                Text(
+                  experience.role,
+                  style: const TextStyle(color: Colors.blueAccent),
+                ),
                 const SizedBox(height: 5),
-                Text(experience.desc,
-                    style: const TextStyle(color: Colors.white70)),
+                Text(
+                  experience.desc,
+                  style: const TextStyle(color: Colors.white70),
+                ),
                 if (experience.appIcons != null &&
                     experience.appIcons!.isNotEmpty) ...[
                   const SizedBox(height: 15),
                   Row(
                     children: experience.appIcons!
-                        .map((iconPath) => Padding(
-                              padding: const EdgeInsets.only(right: 10),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(6),
-                                child:
-                                    Image.asset(iconPath, width: 40, height: 40),
+                        .map(
+                          (iconPath) => Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(6),
+                              child: Image.asset(
+                                iconPath,
+                                width: 40,
+                                height: 40,
                               ),
-                            ))
+                            ),
+                          ),
+                        )
                         .toList(),
                   ),
                 ],
@@ -88,8 +97,10 @@ class ExpTile extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 20),
-          Text(experience.period,
-              style: const TextStyle(color: Colors.white38)),
+          Text(
+            experience.period,
+            style: const TextStyle(color: Colors.white38),
+          ),
         ],
       ),
     );

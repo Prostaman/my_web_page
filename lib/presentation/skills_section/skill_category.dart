@@ -32,14 +32,14 @@ class SkillCategory extends StatelessWidget {
                   fit: BoxFit.contain,
                 )
               else if (icon != null)
-                Icon(
-                  icon,
-                  color: _getIconColor(),
-                ),
+                Icon(icon, color: _getIconColor()),
               const SizedBox(width: 10),
               Text(
                 title,
-                style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),
@@ -48,11 +48,15 @@ class SkillCategory extends StatelessWidget {
             spacing: 12,
             runSpacing: 12,
             children: skills
-                .map((skill) => Chip(
-                      label: Text(skill),
-                      backgroundColor: Colors.blueAccent.withValues(alpha: 0.1),
-                      side: BorderSide(color: Colors.blueAccent.withValues(alpha: 0.2)),
-                    ))
+                .map(
+                  (skill) => Chip(
+                    label: Text(skill),
+                    backgroundColor: Colors.blueAccent.withValues(alpha: 0.1),
+                    side: BorderSide(
+                      color: Colors.blueAccent.withValues(alpha: 0.2),
+                    ),
+                  ),
+                )
                 .toList(),
           ),
         ],
