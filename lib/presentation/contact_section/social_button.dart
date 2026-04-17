@@ -18,9 +18,9 @@ class SocialButton extends StatelessWidget {
       child: IconButton(
         icon: _buildIcon(),
         onPressed: () => onOpenLink(link.url),
-        tooltip: link.type.label, // Используем label вместо name
+        tooltip: link.type.label, // Use label instead of name
         color: Colors.white70,
-        hoverColor: Colors.blueAccent.withOpacity(0.1),
+        hoverColor: Colors.blueAccent.withValues(alpha: 0.1),
       ),
     );
   }
@@ -42,7 +42,7 @@ class SocialButton extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(10),
       decoration: const BoxDecoration(
-        color: Colors.white38, // Серый фон
+        color: Colors.white38, // Grey background
         shape: BoxShape.circle,
       ),
       child: icon,

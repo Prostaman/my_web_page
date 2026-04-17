@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:my_web_page/data/sources/skills_list.dart';
 import 'package:my_web_page/presentation/skills_section/skills_grid.dart';
+import 'package:my_web_page/presentation/skills_section/skill_category.dart';
 
 void main() {
-  testWidgets('SkillsGrid displays categories and specific skills', (WidgetTester tester) async {
+  testWidgets('SkillsGrid displays all categories from skillsList', (WidgetTester tester) async {
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(
@@ -14,15 +16,33 @@ void main() {
       ),
     );
 
-    // Проверяем наличие заголовка
-    expect(find.text('Tech Stack'), findsOneWidget);
+    expect(find.text('Technical Skills'), findsOneWidget);
 
-    // Проверяем наличие категорий
-    expect(find.text('Mobile Development'), findsOneWidget);
-    expect(find.text('Backend & Database'), findsOneWidget);
+    for (var skill in skillsList) {
+      expect(find.text(skill.title), findsOneWidget);
+    }
+  });
 
-    // Проверяем конкретные навыки
-    expect(find.text('Flutter'), findsOneWidget);
-    expect(find.text('Android'), findsOneWidget);
+  testWidgets('SkillCategory renders correctly with isolated data', (WidgetTester tester) async {
+    const testSkills = ['Flutter', 'Dart', 'Testing'];
+    
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: SkillCategory(
+            title: 'Cross-Platform',
+            icon: Icons.star,
+            skills: testSkills,
+          ),
+        ),
+      ),
+    );
+
+    expect(find.text('Cross-Platform'), findsOneWidget);
+    expect(find.byIcon(Icons.star), findsOneWidget);
+    
+    for (var skill in testSkills) {
+      expect(find.text(skill), findsOneWidget);
+    }
   });
 }

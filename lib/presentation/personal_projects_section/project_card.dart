@@ -14,8 +14,8 @@ class ProjectCard extends StatelessWidget {
       width: 350,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.05),
-        border: Border.all(color: Colors.blueAccent.withOpacity(0.3)),
+        color: Colors.white.withValues(alpha: 0.05),
+        border: Border.all(color: Colors.blueAccent.withValues(alpha: 0.3)),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Column(
@@ -36,7 +36,7 @@ class ProjectCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(color: Colors.white70, fontSize: 14),
             ),
-          ), // Возвращаем Spacer, так как на десктопе он нужен для выравнивания
+          ), // Constraints for consistency in grid/rows
           const SizedBox(height: 20),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

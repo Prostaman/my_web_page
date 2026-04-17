@@ -50,8 +50,8 @@ class SkillCategory extends StatelessWidget {
             children: skills
                 .map((skill) => Chip(
                       label: Text(skill),
-                      backgroundColor: Colors.blueAccent.withOpacity(0.1),
-                      side: BorderSide(color: Colors.blueAccent.withOpacity(0.2)),
+                      backgroundColor: Colors.blueAccent.withValues(alpha: 0.1),
+                      side: BorderSide(color: Colors.blueAccent.withValues(alpha: 0.2)),
                     ))
                 .toList(),
           ),

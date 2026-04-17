@@ -76,24 +76,41 @@ const List<SkillEntity> skillsList = [
       'Cloud Storage',
       'App Distribution',
       'Cloud Messaging (FCM)',
-    ],
-  ),
-  SkillEntity(
-    title: 'Network Analysis',
-    icon: Icons.settings_ethernet,
-    technologies: [
-      'Wireshark',
-      'Charles Proxy',
-      'HTTP Toolkit',
+      'Hosting',
     ],
   ),
   SkillEntity(
     title: 'Testing Tools',
     icon: Icons.bug_report,
     technologies: [
+      'Widget Testing',
+      'Unit Testing',
+      'E2E Testing',
       'Appium',
       'Espresso',
       'Postman',
     ],
-  )
+  ),
+  SkillEntity(
+    title: 'Security & Reverse Engineering',
+    icon: Icons.security,
+    technologies: [
+      'Reverse Engineering',
+      'Wireshark',
+      'Charles Proxy',
+      'HTTP Toolkit',
+      'JADX / APKTool',
+    ],
+  ),
+
+  SkillEntity(
+    title: 'DevOps & Tools',
+    icon: Icons.build_circle,
+    technologies: [
+      'GitHub Actions',
+      'GitHub / BitBucket',
+      'Google Play Console',
+      'App Store Connect',
+    ],
+  ),
 ];

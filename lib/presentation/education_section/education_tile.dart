@@ -8,6 +8,7 @@ class EduTile extends StatelessWidget {
   final bool isCircle;
 
   const EduTile({
+    super.key,
     required this.degree,
     required this.title,
     required this.sub,
@@ -34,7 +35,7 @@ class EduTile extends StatelessWidget {
                 borderRadius: isCircle ? null : BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.2),
+                    color: Colors.black.withValues(alpha: 0.2),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -51,7 +52,7 @@ class EduTile extends StatelessWidget {
                   text: degree.toUpperCase(),
                   style: TextStyle(
                     fontSize: 16,
-                    color: Colors.blueAccent.withOpacity(0.9),
+                    color: Colors.blueAccent.withValues(alpha: 0.9),
                     fontWeight: FontWeight.w900,
                     letterSpacing: 1.5,
                   ),
@@ -81,15 +82,12 @@ class EduTile extends StatelessWidget {
   }
 
   Widget _buildImage(String path) {
-    final Widget image =  Image.asset(path, fit: BoxFit.contain);
+    final Widget image = Image.asset(path, fit: BoxFit.contain);
 
     if (isCircle) {
       return ClipOval(child: image);
     } else {
-      return ClipRRect(
-        borderRadius: BorderRadius.circular(12),
-        child: image,
-      );
+      return ClipRRect(borderRadius: BorderRadius.circular(12), child: image);
     }
   }
 }

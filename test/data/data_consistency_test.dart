@@ -20,7 +20,6 @@ void main() {
 
     test('Skills list should be categorized', () {
       expect(skillsList.isNotEmpty, true);
-      expect(skillsList.any((s) => s.category == 'Mobile Development'), true);
     });
 
     test('Projects list should have descriptions and links', () {

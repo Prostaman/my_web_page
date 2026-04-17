@@ -10,7 +10,7 @@ class EducationSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: Colors.white.withOpacity(0.02),
+      color: Colors.white.withValues(alpha: 0.02),
       padding: const EdgeInsets.all(40),
       child: Column(
         children: [
