@@ -36,8 +36,9 @@ class StatisticsBar extends StatelessWidget {
     // Hide dividers on small screens when wrapped (optional)
     return LayoutBuilder(
       builder: (context, constraints) {
-        if (MediaQuery.of(context).size.width < 600)
+        if (MediaQuery.of(context).size.width < 600) {
           return const SizedBox.shrink();
+        }
         return Container(
           height: 30,
           width: 1,
