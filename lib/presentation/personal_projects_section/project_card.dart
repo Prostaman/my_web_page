@@ -9,7 +9,7 @@ class ProjectCard extends StatelessWidget {
 
   const ProjectCard({
     required this.project,
-    this.showActions = false,
+    this.showActions = true, // Теперь по умолчанию true
     super.key,
   });
 
@@ -17,7 +17,7 @@ class ProjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 350,
-      height: showActions ? 280 : 220, // Увеличиваем высоту, если есть кнопки
+      height: 280, // Фиксированная высота для всех случаев
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.05),

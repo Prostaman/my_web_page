@@ -51,35 +51,39 @@ class _FlipProjectCardState extends State<FlipProjectCard>
 
   @override
   Widget build(BuildContext context) {
-    final bool isMobile = MediaQuery.of(context).size.width < 750;
-
-    if (isMobile) {
-      return ProjectCard(project: widget.project, showActions: true);
-    }
-
     return MouseRegion(
       onEnter: (_) => _onHover(true),
       onExit: (_) => _onHover(false),
-      child: AnimatedBuilder(
-        animation: _animation,
-        builder: (context, child) {
-          final angle = _animation.value;
-          final isBack = angle >= pi / 2;
-
-          return Transform(
-            transform: Matrix4.identity()
-              ..setEntry(3, 2, 0.001) // perspective
-              ..rotateY(angle),
-            alignment: Alignment.center,
-            child: isBack
-                ? Transform(
-                    alignment: Alignment.center,
-                    transform: Matrix4.identity()..rotateY(pi),
-                    child: ProjectCardBack(project: widget.project),
-                  )
-                : ProjectCard(project: widget.project),
-          );
+      child: GestureDetector(
+        onTap: () {
+          // Позволяет переворачивать карточку по клику (актуально для планшетов)
+          if (_controller.status == AnimationStatus.completed) {
+            _controller.reverse();
+          } else {
+            _controller.forward();
+          }
         },
+        child: AnimatedBuilder(
+          animation: _animation,
+          builder: (context, child) {
+            final angle = _animation.value;
+            final isBack = angle >= pi / 2;
+
+            return Transform(
+              transform: Matrix4.identity()
+                ..setEntry(3, 2, 0.001) // perspective
+                ..rotateY(angle),
+              alignment: Alignment.center,
+              child: isBack
+                  ? Transform(
+                      alignment: Alignment.center,
+                      transform: Matrix4.identity()..rotateY(pi),
+                      child: ProjectCardBack(project: widget.project),
+                    )
+                  : ProjectCard(project: widget.project, showActions: true),
+            );
+          },
+        ),
       ),
     );
   }

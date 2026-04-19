@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_web_page/presentation/colors.dart';
 import '../../domain/entities/project_entity.dart';
 import '../../infrastructure/services/url_launcher_service.dart';
+import '../colors.dart';
 
 class ProjectCardBack extends StatelessWidget {
   final ProjectEntity project;
@@ -12,7 +12,7 @@ class ProjectCardBack extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 350,
-      height: 220,
+      height: 280, // Высота должна совпадать с ProjectCard (280)
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.blueAccent.withValues(alpha: 0.1),
@@ -23,67 +23,52 @@ class ProjectCardBack extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const Text(
-            'Check it out on:',
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Colors.blueAccent,
+            'Check it out!',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 20),
+          if (project.androidUrl != null)
+            _buildLinkButton(
+              icon: Icons.android,
+              label: 'Google Play',
+              color: AppColors.androidGreen,
+              onTap: () => openLink(project.androidUrl!),
             ),
-          ),
-          const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (project.androidUrl != null)
-                _buildLargeLinkButton(
-                  icon: Icons.android,
-                  label: 'Google Play',
-                  color: AppColors.androidGreen,
-                  onTap: () => openLink(project.androidUrl!),
-                ),
-              if (project.androidUrl != null && project.iosUrl != null)
-                const SizedBox(width: 30),
-              if (project.iosUrl != null)
-                _buildLargeLinkButton(
-                  icon: Icons.apple,
-                  label: 'App Store',
-                  color: Colors.white,
-                  onTap: () => openLink(project.iosUrl!),
-                ),
-            ],
-          ),
+          if (project.androidUrl != null && project.iosUrl != null)
+            const SizedBox(height: 15),
+          if (project.iosUrl != null)
+            _buildLinkButton(
+              icon: Icons.apple,
+              label: 'App Store',
+              color: Colors.white,
+              onTap: () => openLink(project.iosUrl!),
+            ),
           if (project.androidUrl == null && project.iosUrl == null)
             const Text(
-              'Links coming soon!',
-              style: TextStyle(
-                color: Colors.white38,
-                fontStyle: FontStyle.italic,
-              ),
+              'Links coming soon',
+              style: TextStyle(color: Colors.white54),
             ),
         ],
       ),
     );
   }
 
-  Widget _buildLargeLinkButton({
+  Widget _buildLinkButton({
     required IconData icon,
     required String label,
     required Color color,
     required VoidCallback onTap,
   }) {
-    return Column(
-      children: [
-        IconButton(
-          iconSize: 50,
-          icon: Icon(icon, color: color),
-          onPressed: onTap,
-        ),
-        const SizedBox(height: 8),
-        Text(
-          label,
-          style: TextStyle(color: color.withValues(alpha: 0.7), fontSize: 12),
-        ),
-      ],
+    return ElevatedButton.icon(
+      onPressed: onTap,
+      icon: Icon(icon, color: color),
+      label: Text(label),
+      style: ElevatedButton.styleFrom(
+        backgroundColor: Colors.white.withValues(alpha: 0.1),
+        foregroundColor: Colors.white,
+        minimumSize: const Size(200, 45),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
     );
   }
 }
