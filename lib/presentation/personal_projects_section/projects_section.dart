@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_web_page/data/sources/projects_list.dart';
-import 'package:my_web_page/presentation/personal_projects_section/project_card.dart';
+import 'package:my_web_page/presentation/personal_projects_section/flip_project_card.dart';
 import '../section_header.dart';
 
 class ProjectsSection extends StatelessWidget {
@@ -28,7 +28,7 @@ class ProjectsSection extends StatelessWidget {
                         .map(
                           (project) => Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: ProjectCard(project: project),
+                            child: FlipProjectCard(project: project),
                           ),
                         )
                         .toList(),
@@ -41,7 +41,7 @@ class ProjectsSection extends StatelessWidget {
                     .map(
                       (project) => Padding(
                         padding: const EdgeInsets.only(bottom: 20),
-                        child: ProjectCard(project: project),
+                        child: FlipProjectCard(project: project),
                       ),
                     )
                     .toList(),

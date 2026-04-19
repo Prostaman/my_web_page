@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_web_page/presentation/colors.dart';
 import '../../domain/entities/project_entity.dart';
-import '../../infrastructure/services/url_launcher_service.dart';
 
 class ProjectCard extends StatelessWidget {
   final ProjectEntity project;
@@ -37,32 +35,6 @@ class ProjectCard extends StatelessWidget {
               style: const TextStyle(color: Colors.white70, fontSize: 14),
             ),
           ), // Constraints for consistency in grid/rows
-          const SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (project.androidUrl != null)
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  icon: const Icon(Icons.android),
-                  onPressed: () => openLink(project.androidUrl!),
-                  color: AppColors.androidGreen,
-                  tooltip: 'Google Play',
-                ),
-              if (project.iosUrl != null) ...[
-                const SizedBox(width: 15),
-                IconButton(
-                  padding: EdgeInsets.zero,
-                  constraints: const BoxConstraints(),
-                  icon: const Icon(Icons.apple),
-                  onPressed: () => openLink(project.iosUrl!),
-                  color: Colors.white,
-                  tooltip: 'App Store',
-                ),
-              ],
-            ],
-          ),
         ],
       ),
     );

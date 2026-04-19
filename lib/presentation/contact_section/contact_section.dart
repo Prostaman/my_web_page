@@ -23,7 +23,7 @@ class ContactSection extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-            radius: 70,
+            radius: 120,
             backgroundColor: Colors.blueAccent,
             backgroundImage: AssetImage('assets/images/mein_foto.png'),
           ),
