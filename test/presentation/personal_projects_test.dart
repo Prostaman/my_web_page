@@ -44,7 +44,7 @@ void main() {
 
     // Front side should be visible
     expect(find.text('Test App'), findsOneWidget);
-    expect(find.text('Check it out on:'), findsNothing);
+    expect(find.text('Check it out!'), findsNothing);
 
     // Simulate mouse hover
     final gesture = await tester.createGesture(kind: PointerDeviceKind.mouse);
@@ -56,7 +56,7 @@ void main() {
     await tester.pumpAndSettle(); // Finish animation
 
     // Back side should be visible now
-    expect(find.text('Check it out on:'), findsOneWidget);
+    expect(find.text('Check it out!'), findsOneWidget);
     expect(find.text('Google Play'), findsOneWidget);
   });
 }
