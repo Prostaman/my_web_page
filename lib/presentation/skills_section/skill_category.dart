@@ -34,11 +34,14 @@ class SkillCategory extends StatelessWidget {
               else if (icon != null)
                 Icon(icon, color: _getIconColor()),
               const SizedBox(width: 10),
-              Text(
-                title,
-                style: const TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  softWrap: true,
                 ),
               ),
             ],

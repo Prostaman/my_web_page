@@ -20,44 +20,49 @@ class ContactSection extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: Column(
-        children: [
-          CircleAvatar(
-            radius: 70,
-            backgroundColor: Colors.blueAccent,
-            backgroundImage: AssetImage('assets/images/mein_foto.png'),
-          ),
-          const SizedBox(height: 24),
-          const Text(
-            'Rostyslav Triodial',
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            const CircleAvatar(
+              radius: 120,
+              backgroundColor: Colors.blueAccent,
+              backgroundImage: AssetImage('assets/images/mein_foto.png'),
             ),
-          ),
-          const SizedBox(height: 8),
-          const Text(
-            'Flutter(Mobile+Web) && Android Developer',
-            style: TextStyle(
-              fontSize: 22,
-              color: Colors.blueAccent,
-              fontWeight: FontWeight.w300,
+            const SizedBox(height: 24),
+            const Text(
+              'Rostyslav Triodial',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 40,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
-          ),
-          const SizedBox(height: 20),
-          const Text(
-            'Germany, Bayern, 92253 Schnaittenbach',
-            style: TextStyle(color: Colors.white54),
-          ),
-          const SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: contactLinksList.map((link) {
-              return SocialButton(link: link, onOpenLink: onOpenLink);
-            }).toList(),
-          ),
-        ],
+            const SizedBox(height: 8),
+            const Text(
+              'Flutter(Mobile+Web) && Android Developer',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontSize: 22,
+                color: Colors.blueAccent,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
+            const SizedBox(height: 20),
+            const Text(
+              'Germany, Bayern, 92253 Schnaittenbach',
+              textAlign: TextAlign.center,
+              style: TextStyle(color: Colors.white54),
+            ),
+            const SizedBox(height: 30),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: contactLinksList.map((link) {
+                return SocialButton(link: link, onOpenLink: onOpenLink);
+              }).toList(),
+            ),
+          ],
+        ),
       ),
     );
   }

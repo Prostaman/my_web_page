@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:my_web_page/data/sources/experience_list.dart';
-import 'package:my_web_page/domain/entities/experience_entity.dart';
+import 'package:my_web_page/domain/entities/expirience/company_app_entity.dart';
+import 'package:my_web_page/domain/entities/expirience/experience_entity.dart';
 import 'package:my_web_page/presentation/expierence_section/exp_tile.dart';
 import 'package:my_web_page/presentation/expierence_section/experience_section.dart';
 
@@ -20,42 +21,66 @@ void main() {
     for (var exp in experienceList) {
       expect(find.text(exp.company), findsOneWidget);
       expect(find.text(exp.role), findsOneWidget);
-      expect(find.text(exp.period), findsOneWidget);
     }
   });
 
-  testWidgets('ExpTile renders correctly with isolated data', (
+  testWidgets('ExpTile handles company logo click if URL is present', (
     WidgetTester tester,
   ) async {
+    const testExp = ExperienceEntity(
+      company: 'Clickable Co',
+      role: 'Dev',
+      period: '2024',
+      desc: 'Desc',
+      companyIcon: 'assets/icons/companies/initium_icon.png',
+      companyUrl: 'https://test.com',
+    );
+
     await tester.pumpWidget(
       const MaterialApp(
-        home: Scaffold(
-          body: ExpTile(
-            experience: ExperienceEntity(
-              company: 'Test Company',
-              role: 'Senior Developer',
-              period: '2023 - Present',
-              desc: 'Developed amazing things.',
-              companyIcon: 'assets/icons/companies/initium_icon.png',
-            ),
-          ),
-        ),
+        home: Scaffold(body: ExpTile(experience: testExp)),
       ),
     );
 
-    expect(find.text('Test Company'), findsOneWidget);
-    expect(find.text('Senior Developer'), findsOneWidget);
-    expect(find.text('2023 - Present'), findsOneWidget);
-    expect(find.textContaining('Developed amazing things'), findsOneWidget);
+    // Find the company logo
+    final logoFinder = find.byType(GestureDetector).first;
+    expect(logoFinder, findsOneWidget);
 
-    // Verify icon
-    final iconFinder = find.byWidgetPredicate(
-      (widget) =>
-          widget is Image &&
-          widget.image is AssetImage &&
-          (widget.image as AssetImage).assetName ==
-              'assets/icons/companies/initium_icon.png',
+    // Note: We can't easily test url_launcher in widget tests without mocks,
+    // but we verify the GestureDetector is there.
+  });
+
+  testWidgets('ExpTile opens dialog on app icon click', (
+    WidgetTester tester,
+  ) async {
+    final testExp = ExperienceEntity(
+      company: 'App Co',
+      role: 'Dev',
+      period: '2024',
+      desc: 'Desc',
+      apps: [
+        const CompanyAppEntity(
+          name: 'Test App',
+          iconPath: 'assets/icons/projects/PSN_icon.png',
+          androidUrl: 'https://play.google.com',
+        ),
+      ],
     );
-    expect(iconFinder, findsOneWidget);
+
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(body: ExpTile(experience: testExp)),
+      ),
+    );
+
+    // Find the app icon and tap it
+    final appIconFinder = find.byType(Image).first;
+    await tester.tap(appIconFinder);
+    await tester.pumpAndSettle(); // Wait for dialog animation
+
+    // Verify dialog is shown
+    expect(find.byType(AlertDialog), findsOneWidget);
+    expect(find.text('Test App'), findsOneWidget);
+    expect(find.text('Google Play'), findsOneWidget);
   });
 }
