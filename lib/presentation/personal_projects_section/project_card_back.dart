@@ -12,6 +12,7 @@ class ProjectCardBack extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 350,
+      height: 220,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.blueAccent.withValues(alpha: 0.1),

@@ -31,6 +31,7 @@ class ContactSection extends StatelessWidget {
             const SizedBox(height: 24),
             const Text(
               'Rostyslav Triodial',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
@@ -40,6 +41,7 @@ class ContactSection extends StatelessWidget {
             const SizedBox(height: 8),
             const Text(
               'Flutter(Mobile+Web) && Android Developer',
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 22,
                 color: Colors.blueAccent,
@@ -49,6 +51,7 @@ class ContactSection extends StatelessWidget {
             const SizedBox(height: 20),
             const Text(
               'Germany, Bayern, 92253 Schnaittenbach',
+              textAlign: TextAlign.center,
               style: TextStyle(color: Colors.white54),
             ),
             const SizedBox(height: 30),

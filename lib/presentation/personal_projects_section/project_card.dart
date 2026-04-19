@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import '../../domain/entities/project_entity.dart';
+import '../../infrastructure/services/url_launcher_service.dart';
+import '../colors.dart';
 
 class ProjectCard extends StatelessWidget {
   final ProjectEntity project;
+  final bool showActions;
 
-  const ProjectCard({required this.project, super.key});
+  const ProjectCard({
+    required this.project,
+    this.showActions = false,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 350,
+      height: showActions ? 280 : 220, // Увеличиваем высоту, если есть кнопки
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white.withValues(alpha: 0.05),
@@ -22,6 +30,7 @@ class ProjectCard extends StatelessWidget {
           const SizedBox(height: 15),
           Text(
             project.title,
+            softWrap: true,
             style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 10),
@@ -34,9 +43,42 @@ class ProjectCard extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
               style: const TextStyle(color: Colors.white70, fontSize: 14),
             ),
-          ), // Constraints for consistency in grid/rows
+          ),
+          if (showActions) ...[
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                if (project.androidUrl != null)
+                  _buildSmallLinkButton(
+                    icon: Icons.android,
+                    color: AppColors.androidGreen,
+                    onTap: () => openLink(project.androidUrl!),
+                  ),
+                if (project.androidUrl != null && project.iosUrl != null)
+                  const SizedBox(width: 20),
+                if (project.iosUrl != null)
+                  _buildSmallLinkButton(
+                    icon: Icons.apple,
+                    color: Colors.white,
+                    onTap: () => openLink(project.iosUrl!),
+                  ),
+              ],
+            ),
+          ],
         ],
       ),
+    );
+  }
+
+  Widget _buildSmallLinkButton({
+    required IconData icon,
+    required Color color,
+    required VoidCallback onTap,
+  }) {
+    return IconButton(
+      icon: Icon(icon, color: color, size: 28),
+      onPressed: onTap,
     );
   }
 

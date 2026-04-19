@@ -51,6 +51,12 @@ class _FlipProjectCardState extends State<FlipProjectCard>
 
   @override
   Widget build(BuildContext context) {
+    final bool isMobile = MediaQuery.of(context).size.width < 750;
+
+    if (isMobile) {
+      return ProjectCard(project: widget.project, showActions: true);
+    }
+
     return MouseRegion(
       onEnter: (_) => _onHover(true),
       onExit: (_) => _onHover(false),
