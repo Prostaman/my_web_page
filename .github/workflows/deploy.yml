@@ -13,11 +13,25 @@ on:
   pull_request:
     branches:
       - main
-      - development
   workflow_dispatch:
 
 jobs:
+  check_branch:
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check source branch
+        if: github.head_ref != 'development'
+        run: |
+          echo "ERROR: You can only merge into 'main' from the 'development' branch."
+          echo "Your source branch is: ${{ github.head_ref }}"
+          exit 1
+
   build_and_deploy:
+    needs: [check_branch]
+    if: |
+      always() && 
+      (needs.check_branch.result == 'success' || needs.check_branch.result == 'skipped')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
