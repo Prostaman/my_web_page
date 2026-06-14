@@ -5,7 +5,7 @@ const List<ExperienceEntity> experienceList = [
   ExperienceEntity(
     company: 'Poihaly z namy',
     role: 'Mobile Developer (Dart, Kotlin)',
-    period: '1 year',
+    period: '1 year 1 month',
     companyIcon: 'assets/icons/companies/psn_icon.png',
     companyUrl: 'https://www.poehalisnami.ua/',
     apps: [
@@ -24,7 +24,7 @@ const List<ExperienceEntity> experienceList = [
   ExperienceEntity(
     company: 'Initium Group',
     role: 'Android Developer (Kotlin)',
-    period: '2.7 years',
+    period: '2 years 7 months',
     companyIcon: 'assets/icons/companies/initium_icon.png',
     companyUrl: 'http://initium-group.biz/',
     desc:
