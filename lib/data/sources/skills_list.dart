@@ -61,6 +61,8 @@ const List<SkillEntity> skillsList = [
       'Google AdMob',
       'Clean Architecture',
       'Reactive Programming',
+      'Flutter Secure Storage',
+      'In App Purchases',
     ],
   ),
   SkillEntity(

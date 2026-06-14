@@ -14,7 +14,7 @@ const List<ContactLinkEntity> contactLinksList = [
     type: ContactLinkType.telegram,
   ),
   ContactLinkEntity(
-    url: 'https://wa.me/your-number',
+    url: 'https://wa.me/qr/ZMGCOWC7YYPKG1',
     type: ContactLinkType.whatsapp,
   ),
 ];

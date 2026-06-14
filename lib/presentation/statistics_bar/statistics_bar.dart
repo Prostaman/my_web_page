@@ -19,7 +19,7 @@ class StatisticsBar extends StatelessWidget {
           spacing: isMobile ? 20 : 40,
           runSpacing: 20,
           children: [
-            const StatItem(value: '4+ years', label: 'Experience'),
+            const StatItem(value: '4,5 years', label: 'Experience'),
             if (!isMobile) _buildDivider(),
             const StatItem(value: 'C2', label: 'Ukrainian, Russian'),
             if (!isMobile) _buildDivider(),

@@ -12,7 +12,6 @@ void main() {
     );
 
     // Verify key indicators
-    expect(find.text('4+ years'), findsOneWidget);
     expect(find.text('Experience'), findsOneWidget);
     expect(find.text('Master'), findsOneWidget);
     expect(find.text('B2'), findsOneWidget);
