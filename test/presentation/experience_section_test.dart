@@ -19,7 +19,7 @@ void main() {
     expect(find.text('Professional Experience'), findsOneWidget);
 
     for (var exp in experienceList) {
-      expect(find.text(exp.company), findsOneWidget);
+      expect(find.text(exp.company), findsAtLeastNWidgets(1));
       expect(find.text(exp.role), findsOneWidget);
     }
   });

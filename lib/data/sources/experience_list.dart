@@ -3,6 +3,24 @@ import '../../domain/entities/expirience/experience_entity.dart';
 
 const List<ExperienceEntity> experienceList = [
   ExperienceEntity(
+    company: 'HMS365.DE',
+    role: 'Full-Stack Flutter Developer (Dart, Firebase)',
+    period: '2 weeks',
+    companyIcon: 'assets/icons/companies/hsm365.png',
+    companyUrl: 'http://www.hausmeisterservice365.de',
+    desc:
+        'Development of a system for managing maintenance staff, work areas, and tasks, including an Android application for maintenance staff and a desktop application for managers. Backend and authentication implemented using Firebase Authentication and Firestore.',
+  ),
+  ExperienceEntity(
+    company: 'Poihaly z namy',
+    role: 'iOS Developer (Swift)',
+    period: '2 months',
+    companyIcon: 'assets/icons/companies/psn_icon.png',
+    companyUrl: 'https://www.poehalisnami.ua/',
+    desc:
+        'Developing an iOS app using WKWebView to integrate a web-based CRM system.',
+  ),
+  ExperienceEntity(
     company: 'Poihaly z namy',
     role: 'Mobile Developer (Dart, Kotlin)',
     period: '1 year 1 month',
