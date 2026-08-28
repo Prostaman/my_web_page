@@ -40,7 +40,7 @@ class ContactSection extends StatelessWidget {
             ),
             const SizedBox(height: 8),
             const Text(
-              'Flutter(Mobile+Web) && Android Developer',
+              'Flutter && Android Developer',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 22,
