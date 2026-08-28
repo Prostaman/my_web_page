@@ -15,10 +15,7 @@ void main() {
 
     // Verify name and role
     expect(find.text('Rostyslav Triodial'), findsOneWidget);
-    expect(
-      find.text('Flutter(Mobile+Web) && Android Developer'),
-      findsOneWidget,
-    );
+    expect(find.text('Flutter && Android Developer'), findsOneWidget);
     expect(find.textContaining('Germany'), findsOneWidget);
 
     // Verify that all links from the list are present (via the number of SocialButtons)
