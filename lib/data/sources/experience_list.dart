@@ -42,7 +42,7 @@ const List<ExperienceEntity> experienceList = [
   ExperienceEntity(
     company: 'Initium Group',
     role: 'Android Developer (Kotlin)',
-    period: '2 years 6 months',
+    period: '2 years 7 months',
     companyIcon: 'assets/icons/companies/initium_icon.png',
     companyUrl: 'http://initium-group.biz/',
     desc:
