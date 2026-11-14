@@ -61,7 +61,7 @@ void main() {
       apps: [
         const CompanyAppEntity(
           name: 'Test App',
-          iconPath: 'assets/icons/projects/PSN_icon.png',
+          iconPath: 'assets/icons/projects/psn_hotels_icon.png',
           androidUrl: 'https://play.google.com',
         ),
       ],

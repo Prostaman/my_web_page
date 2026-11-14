@@ -33,6 +33,8 @@ const List<SkillEntity> skillsList = [
       'Services',
       'Shared Preferences',
       'Location API',
+      'Material Design',
+      'Flow',
     ],
   ),
   SkillEntity(
@@ -64,6 +66,7 @@ const List<SkillEntity> skillsList = [
       'Reactive Programming',
       'Flutter Secure Storage',
       'In App Purchases',
+      'Material Design',
     ],
   ),
   SkillEntity(

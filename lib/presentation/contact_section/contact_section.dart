@@ -12,7 +12,7 @@ class ContactSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [Colors.blueGrey.shade900, Colors.black],
@@ -23,12 +23,32 @@ class ContactSection extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            const CircleAvatar(
-              radius: 120,
-              backgroundColor: Colors.blueAccent,
-              backgroundImage: AssetImage('assets/images/mein_foto.png'),
+            Container(
+              constraints: const BoxConstraints(maxWidth: 680, maxHeight: 400),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(24),
+                border: Border.all(
+                  color: Colors.white.withValues(alpha: 0.12),
+                  width: 1,
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.blueAccent.withValues(alpha: 0.25),
+                    blurRadius: 36,
+                    spreadRadius: 2,
+                  ),
+                ],
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(24),
+                child: Image.asset(
+                  'assets/images/ich_1.png',
+                  fit: BoxFit.cover,
+                  width: double.infinity,
+                ),
+              ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 28),
             const Text(
               'Rostyslav Triodial',
               textAlign: TextAlign.center,
@@ -36,27 +56,40 @@ class ContactSection extends StatelessWidget {
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
+                letterSpacing: 1.1,
               ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 10),
             const Text(
               'Flutter && Android Developer',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 22,
                 color: Colors.blueAccent,
-                fontWeight: FontWeight.w300,
+                fontWeight: FontWeight.w400,
               ),
             ),
-            const SizedBox(height: 20),
-            const Text(
-              'Germany, Bayern, 92253 Schnaittenbach',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.white54),
-            ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 16),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(
+                  Icons.location_on_outlined,
+                  size: 18,
+                  color: Colors.white54,
+                ),
+                SizedBox(width: 6),
+                Text(
+                  'Germany, Bayern, 92253 Schnaittenbach',
+                  style: TextStyle(color: Colors.white54),
+                ),
+              ],
+            ),
+            const SizedBox(height: 28),
+            Wrap(
+              alignment: WrapAlignment.center,
+              spacing: 12,
+              runSpacing: 12,
               children: contactLinksList.map((link) {
                 return SocialButton(link: link, onOpenLink: onOpenLink);
               }).toList(),
