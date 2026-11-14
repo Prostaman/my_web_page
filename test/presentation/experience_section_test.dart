@@ -10,6 +10,11 @@ void main() {
   testWidgets('ExperienceSection displays all items from experienceList', (
     WidgetTester tester,
   ) async {
+    tester.view.physicalSize = const Size(1200, 900);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+
     await tester.pumpWidget(
       const MaterialApp(
         home: Scaffold(body: SingleChildScrollView(child: ExperienceSection())),
